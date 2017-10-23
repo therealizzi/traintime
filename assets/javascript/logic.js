@@ -25,8 +25,8 @@ $(document).on("click",".btn",function(){
 	trainDest = $("#TrainDest").val().trim();
 	trainStart = $("#FirstTrain").val().trim();
 	trainFreq = $("#Frequency").val().trim();
-	
-	database.ref().set({
+
+	database.ref().push({
 		Train : trainName,
 		Dest : trainDest,
 		Start : trainStart,
@@ -38,7 +38,7 @@ $(document).on("click",".btn",function(){
 database.ref().on("value", function(response) {
 	console.log(response.val());
 
-	//Must define time of the load
+	//Must define time of the page load
 	var currentTime = moment();
 
 	//Must convert start time into "moment" format
@@ -47,7 +47,7 @@ database.ref().on("value", function(response) {
 	//Must find out difference in current time and start time
 	var diffTime = moment().diff(moment(trainStartConverted), "minutes");
 
-	//Must find time apart (remainder)
+	//Must find time between trains (remainder)
 	var tRemainder = diffTime % response.val().Freq;
 
 	//Must find minutes until next train
