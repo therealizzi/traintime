@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ 	<meta charset="utf-8">
+ 	<title>The Magical Gif Buttons</title>
+
+	  <!-- CSS Styling -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	
+	  <!-- JavaScript -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	  <!-- Bootstrap -->
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+
+</head>
+
+<body>
+	
+<div class="container">
+	<div class="jumbotron">
+		<h1><strong>Trains Trains Trains</strong></h1>
+		<p>Choo Choo. Chee Chee.</p>
+	</div>
+</div>
+
+<div class="container">
+	<div class="">
+		<div class= "panel panel-primary">
+			<div class= "panel-heading">Train Schedule
+			</div>
+			<div class= "panel-body">
+				<table class= "table table-hover">
+					<thead>
+						<tr>
+							<th>Train Name</th>
+							<th>Destination</th>
+							<th>Frequency (min)</th>
+							<th>Next Arrival</th>
+							<th>Minutes Away</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="add-trains-here">
+							<td>Thomas</td>
+							<td>Chicago</td>
+							<td>24</td>
+							<td>11:45 AM</td>
+							<td>05</td>				
+						</tr>
+						<tr class="add-trains-here">
+							<td>Thomas</td>
+							<td>Chicago</td>
+							<td>24</td>
+							<td>11:45 AM</td>
+							<td>05</td>				
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Add Train
+			</div>
+			<div class="panel-body">
+				<table class="table form-horizontal" role="form">
+					<div class="form-group">
+						<label for="inputTrainName" class="control-label">Train Name</label>
+						<input type="TrainName" class="form-control" id="TrainName" placeholder="Thomas" />
+					</div>
+
+					<div class="form-group">
+						<label for="inputTrainDest" class="control-label">Destination</label>
+						<input type="TrainName" class="form-control" id="TrainDest" placeholder="San Francisco" />
+					</div>
+
+					<div class="form-group">
+						<label for="inputFirstTrain" class="control-label">First Train Time (HH:mm - military time)</label>
+						<input type="FirstTrain" class="form-control" id="FirstTrain" placeholder="22:20" />
+					</div>
+
+					<div class="form-group">
+						<label for="inputFrequency" class="control-label">Frequency (Min)</label>
+						<input type="Frequency" class="form-control" id="Frequency" placeholder="22:20" />
+					</div>
+				</table>				
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="assets/javascript/logic.js"></script>
+
+</body>
+
+</html>
