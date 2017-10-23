@@ -8,14 +8,15 @@
 	  <!-- CSS Styling -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	
-	  <!-- JavaScript -->
+	  <!-- Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	  <!-- Bootstrap -->
  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-	<!-- Google Font -->
-	<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
+ 	  <!-- Firebase JavaScript Link -->
+ 	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+
 
 </head>
 
@@ -44,27 +45,15 @@
 							<th>Minutes Away</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr class="add-trains-here">
-							<td>Thomas</td>
-							<td>Chicago</td>
-							<td>24</td>
-							<td>11:45 AM</td>
-							<td>05</td>				
+					<tbody class="add-trains-here">
+						<tr class="add-trains-here">		
 						</tr>
-						<tr class="add-trains-here">
-							<td>Thomas</td>
-							<td>Chicago</td>
-							<td>24</td>
-							<td>11:45 AM</td>
-							<td>05</td>				
-						</tr>
+
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-
 
 	<div class="">
 		<div class="panel panel-primary">
@@ -89,14 +78,17 @@
 
 					<div class="form-group">
 						<label for="inputFrequency" class="control-label">Frequency (Min)</label>
-						<input type="Frequency" class="form-control" id="Frequency" placeholder="22:20" />
+						<input type="Frequency" class="form-control" id="Frequency" placeholder="20" />
 					</div>
+
+					<button type="button" class="btn btn-primary">Submit</button>
 				</table>				
 			</div>
 		</div>
 	</div>
 </div>
 
+	<!-- JavaScript -->
 <script src="assets/javascript/logic.js"></script>
 
 </body>
