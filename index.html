@@ -3,7 +3,7 @@
 
 <head>
  	<meta charset="utf-8">
- 	<title>The Magical Gif Buttons</title>
+ 	<title>Train Times</title>
 
 	  <!-- CSS Styling -->
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -17,6 +17,8 @@
  	  <!-- Firebase JavaScript Link -->
  	<script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
 
+	  <!-- Added Moment JS -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
 
@@ -48,7 +50,6 @@
 					<tbody class="add-trains-here">
 						<tr class="add-trains-here">		
 						</tr>
-
 					</tbody>
 				</table>
 			</div>
@@ -72,7 +73,7 @@
 					</div>
 
 					<div class="form-group">
-						<label for="inputFirstTrain" class="control-label">First Train Time (HH:mm - military time)</label>
+						<label for="inputFirstTrain" class="control-label">First Train Time (hh:mm - military time)</label>
 						<input type="FirstTrain" class="form-control" id="FirstTrain" placeholder="22:20" />
 					</div>
 
