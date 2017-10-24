@@ -20,29 +20,30 @@ var trainNext = 0;
 var trainMins = 0;
 
 //Must define onclick event to load variables and send to firebase
-$(document).on("click",".btn",function(){
+$(document).on("click", ".btn", function(event){
+	event.preventDefault();
+
 	trainName = $("#TrainName").val().trim();
 	trainDest = $("#TrainDest").val().trim();
 	trainStart = $("#FirstTrain").val().trim();
 	trainFreq = $("#Frequency").val().trim();
 
-	database.ref().push({
+	var addTrain = {
 		Train : trainName,
 		Dest : trainDest,
 		Start : trainStart,
 		Freq : trainFreq
-	});
+	};
+
+	database.ref().push(addTrain);
 });
 
 //Must have an "on value" event to display results in firebase
-database.ref().on("value", function(response) {
+database.ref().on("child_added", function(response) {
 	console.log(response.val());
 
-	//Must define time of the page load
-	var currentTime = moment();
-
 	//Must convert start time into "moment" format
-	var trainStartConverted = moment(response.val().Start, "hh:mm").subtract(1, "years");
+	var trainStartConverted = moment(response.val().Start, "HH:mm").subtract(1, "years");
 
 	//Must find out difference in current time and start time
 	var diffTime = moment().diff(moment(trainStartConverted), "minutes");
@@ -56,10 +57,10 @@ database.ref().on("value", function(response) {
 	//Must find next train time
 	var nextTrain = moment().add(minutesTillTrain, "minutes");
 
-	$(".add-trains-here").html("<tr class=prepend-here><tr>")
-	$(".prepend-here").prepend("<td>"+minutesTillTrain+"</td>")
-	$(".prepend-here").prepend("<td>"+moment(nextTrain).format("hh:mm")+"</td>")
-	$(".prepend-here").prepend("<td>"+response.val().Freq+"</td>")
-	$(".prepend-here").prepend("<td>"+response.val().Dest+"</td>")
-	$(".prepend-here").prepend("<td>"+response.val().Train+"</td>")
+	$(".add-trains-here").append("<tr class=prepend-here><td>"+response.val().Train+
+		"</td><td>"+response.val().Dest+
+		"</td><td>"+response.val().Freq+
+		"</td><td>"+moment(nextTrain).format("HH:mm")+
+		"</td><td>"+minutesTillTrain+
+		"</td></tr>");
 });
