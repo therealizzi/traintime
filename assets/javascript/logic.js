@@ -23,11 +23,13 @@ var trainMins = 0;
 $(document).on("click", ".btn", function(event){
 	event.preventDefault();
 
+	//Must gather user data from input fields
 	trainName = $("#TrainName").val().trim();
 	trainDest = $("#TrainDest").val().trim();
 	trainStart = $("#FirstTrain").val().trim();
 	trainFreq = $("#Frequency").val().trim();
 
+	//Must combine user data into JSON format
 	var addTrain = {
 		Train : trainName,
 		Dest : trainDest,
@@ -35,12 +37,12 @@ $(document).on("click", ".btn", function(event){
 		Freq : trainFreq
 	};
 
+	//Must push JSON file to database
 	database.ref().push(addTrain);
 });
 
 //Must have an "on value" event to display results in firebase
 database.ref().on("child_added", function(response) {
-	console.log(response.val());
 
 	//Must convert start time into "moment" format
 	var trainStartConverted = moment(response.val().Start, "HH:mm").subtract(1, "years");
@@ -57,6 +59,7 @@ database.ref().on("child_added", function(response) {
 	//Must find next train time
 	var nextTrain = moment().add(minutesTillTrain, "minutes");
 
+	//Must render data in HTML tags in DOM
 	$(".add-trains-here").append(
 		"<tr><td>"+response.val().Train+
 		"</td><td>"+response.val().Dest+
