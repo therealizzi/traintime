@@ -57,7 +57,8 @@ database.ref().on("child_added", function(response) {
 	//Must find next train time
 	var nextTrain = moment().add(minutesTillTrain, "minutes");
 
-	$(".add-trains-here").append("<tr class=prepend-here><td>"+response.val().Train+
+	$(".add-trains-here").append(
+		"<tr><td>"+response.val().Train+
 		"</td><td>"+response.val().Dest+
 		"</td><td>"+response.val().Freq+
 		"</td><td>"+moment(nextTrain).format("HH:mm")+
